@@ -1,7 +1,12 @@
+// File: src/components/TodoList.vue
 <template>
   <ul>
     <li v-for="todo in store.todos" :key="todo.id" class="todo-item">
-      <input type="checkbox" v-model="todo.completed" @change="store.toggleComplete(todo.id)" />
+      <input
+        type="checkbox"
+        :checked="todo.completed"
+        @change="store.toggleComplete(todo.id)"
+      />
       <span :class="{ done: todo.completed }">{{ todo.title }}</span>
       <button @click="store.deleteTodo(todo.id)">Hapus</button>
     </li>
